@@ -1,0 +1,27 @@
+swagger: '2.0'
+
+info:
+  title: Custom Validation
+  version: 0.1.0
+
+paths:
+  '/echo':
+    post:
+      parameters:
+        - name: Echo
+          in: body
+          schema:
+            $ref: "#/definitions/Echo"
+      responses:
+        '200':
+          description: Echo back the same message
+          schema:
+            $ref: "#/definitions/Echo"
+
+definitions:
+  Echo:
+    type: object
+    properties:
+      Message:
+        type: string
+        maxLength: 30
